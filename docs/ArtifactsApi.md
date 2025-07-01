@@ -43,14 +43,14 @@ configuration.api_key['Token'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['Token'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
+async with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = paratranz_cn_openapi_client.ArtifactsApi(api_client)
     project_id = 867 # int | 项目ID
 
     try:
         # 下载
-        api_instance.download_artifact(project_id)
+        await api_instance.download_artifact(project_id)
     except Exception as e:
         print("Exception when calling ArtifactsApi->download_artifact: %s\n" % e)
 ```
@@ -120,14 +120,14 @@ configuration.api_key['Token'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['Token'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
+async with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = paratranz_cn_openapi_client.ArtifactsApi(api_client)
     project_id = 867 # int | 项目ID
 
     try:
         # 触发导出
-        api_response = api_instance.generate_artifact(project_id)
+        api_response = await api_instance.generate_artifact(project_id)
         print("The response of ArtifactsApi->generate_artifact:\n")
         pprint(api_response)
     except Exception as e:
@@ -200,14 +200,14 @@ configuration.api_key['Token'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['Token'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
+async with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = paratranz_cn_openapi_client.ArtifactsApi(api_client)
     project_id = 867 # int | 项目ID
 
     try:
         # 导出结果
-        api_response = api_instance.get_artifact(project_id)
+        api_response = await api_instance.get_artifact(project_id)
         print("The response of ArtifactsApi->get_artifact:\n")
         pprint(api_response)
     except Exception as e:

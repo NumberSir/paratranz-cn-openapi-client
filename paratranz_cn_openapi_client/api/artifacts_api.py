@@ -13,10 +13,10 @@
 """  # noqa: E501
 
 from typing import Any, Dict, List, Optional, Tuple, Union
+from typing_extensions import Annotated
 
 from pydantic import Field, StrictInt
-from pydantic import validate_call, StrictFloat, StrictStr
-from typing_extensions import Annotated
+from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 
 from paratranz_cn_openapi_client.api_client import ApiClient, RequestSerialized
 from paratranz_cn_openapi_client.api_response import ApiResponse
@@ -39,7 +39,7 @@ class ArtifactsApi:
 
 
     @validate_call
-    def download_artifact(
+    async def download_artifact(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         _request_timeout: Union[
@@ -94,11 +94,11 @@ class ArtifactsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '302': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -106,7 +106,7 @@ class ArtifactsApi:
 
 
     @validate_call
-    def download_artifact_with_http_info(
+    async def download_artifact_with_http_info(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         _request_timeout: Union[
@@ -161,11 +161,11 @@ class ArtifactsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '302': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -173,7 +173,7 @@ class ArtifactsApi:
 
 
     @validate_call
-    def download_artifact_without_preload_content(
+    async def download_artifact_without_preload_content(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         _request_timeout: Union[
@@ -228,7 +228,7 @@ class ArtifactsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '302': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -291,7 +291,7 @@ class ArtifactsApi:
 
 
     @validate_call
-    def generate_artifact(
+    async def generate_artifact(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         _request_timeout: Union[
@@ -347,11 +347,11 @@ class ArtifactsApi:
             '200': "Job",
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -359,7 +359,7 @@ class ArtifactsApi:
 
 
     @validate_call
-    def generate_artifact_with_http_info(
+    async def generate_artifact_with_http_info(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         _request_timeout: Union[
@@ -415,11 +415,11 @@ class ArtifactsApi:
             '200': "Job",
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -427,7 +427,7 @@ class ArtifactsApi:
 
 
     @validate_call
-    def generate_artifact_without_preload_content(
+    async def generate_artifact_without_preload_content(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         _request_timeout: Union[
@@ -483,7 +483,7 @@ class ArtifactsApi:
             '200': "Job",
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -553,7 +553,7 @@ class ArtifactsApi:
 
 
     @validate_call
-    def get_artifact(
+    async def get_artifact(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         _request_timeout: Union[
@@ -608,11 +608,11 @@ class ArtifactsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Artifact",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -620,7 +620,7 @@ class ArtifactsApi:
 
 
     @validate_call
-    def get_artifact_with_http_info(
+    async def get_artifact_with_http_info(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         _request_timeout: Union[
@@ -675,11 +675,11 @@ class ArtifactsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Artifact",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -687,7 +687,7 @@ class ArtifactsApi:
 
 
     @validate_call
-    def get_artifact_without_preload_content(
+    async def get_artifact_without_preload_content(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         _request_timeout: Union[
@@ -742,7 +742,7 @@ class ArtifactsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Artifact",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

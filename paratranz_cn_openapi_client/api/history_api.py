@@ -14,10 +14,10 @@
 
 from typing import Any, Dict, List, Tuple
 from typing import Optional, Union
-
-from pydantic import Field, StrictInt, StrictStr
-from pydantic import validate_call, StrictFloat
 from typing_extensions import Annotated
+
+from pydantic import Field, StrictInt, StrictStr, field_validator
+from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 
 from paratranz_cn_openapi_client.api_client import ApiClient, RequestSerialized
 from paratranz_cn_openapi_client.api_response import ApiResponse
@@ -41,7 +41,7 @@ class HistoryApi:
 
 
     @validate_call
-    def get_file_revisions(
+    async def get_file_revisions(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         file: Annotated[Optional[Union[Annotated[float, Field(strict=True, ge=1)], Annotated[int, Field(strict=True, ge=1)]]], Field(description="指定文件获取历史")] = None,
@@ -112,11 +112,11 @@ class HistoryApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetFileRevisions200Response",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -124,7 +124,7 @@ class HistoryApi:
 
 
     @validate_call
-    def get_file_revisions_with_http_info(
+    async def get_file_revisions_with_http_info(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         file: Annotated[Optional[Union[Annotated[float, Field(strict=True, ge=1)], Annotated[int, Field(strict=True, ge=1)]]], Field(description="指定文件获取历史")] = None,
@@ -195,11 +195,11 @@ class HistoryApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetFileRevisions200Response",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -207,7 +207,7 @@ class HistoryApi:
 
 
     @validate_call
-    def get_file_revisions_without_preload_content(
+    async def get_file_revisions_without_preload_content(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         file: Annotated[Optional[Union[Annotated[float, Field(strict=True, ge=1)], Annotated[int, Field(strict=True, ge=1)]]], Field(description="指定文件获取历史")] = None,
@@ -278,7 +278,7 @@ class HistoryApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetFileRevisions200Response",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -368,7 +368,7 @@ class HistoryApi:
 
 
     @validate_call
-    def get_history(
+    async def get_history(
         self,
         page: Annotated[Optional[StrictInt], Field(description="页码")] = None,
         page_size: Annotated[Optional[Annotated[int, Field(le=800, strict=True, ge=1)]], Field(description="每页数量")] = None,
@@ -443,11 +443,11 @@ class HistoryApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetHistory200Response",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -455,7 +455,7 @@ class HistoryApi:
 
 
     @validate_call
-    def get_history_with_http_info(
+    async def get_history_with_http_info(
         self,
         page: Annotated[Optional[StrictInt], Field(description="页码")] = None,
         page_size: Annotated[Optional[Annotated[int, Field(le=800, strict=True, ge=1)]], Field(description="每页数量")] = None,
@@ -530,11 +530,11 @@ class HistoryApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetHistory200Response",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -542,7 +542,7 @@ class HistoryApi:
 
 
     @validate_call
-    def get_history_without_preload_content(
+    async def get_history_without_preload_content(
         self,
         page: Annotated[Optional[StrictInt], Field(description="页码")] = None,
         page_size: Annotated[Optional[Annotated[int, Field(le=800, strict=True, ge=1)]], Field(description="每页数量")] = None,
@@ -617,7 +617,7 @@ class HistoryApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetHistory200Response",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -714,7 +714,7 @@ class HistoryApi:
 
 
     @validate_call
-    def get_term_history(
+    async def get_term_history(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         term_id: Annotated[StrictInt, Field(description="术语ID")],
@@ -773,11 +773,11 @@ class HistoryApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetTermHistory200Response",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -785,7 +785,7 @@ class HistoryApi:
 
 
     @validate_call
-    def get_term_history_with_http_info(
+    async def get_term_history_with_http_info(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         term_id: Annotated[StrictInt, Field(description="术语ID")],
@@ -844,11 +844,11 @@ class HistoryApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetTermHistory200Response",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -856,7 +856,7 @@ class HistoryApi:
 
 
     @validate_call
-    def get_term_history_without_preload_content(
+    async def get_term_history_without_preload_content(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         term_id: Annotated[StrictInt, Field(description="术语ID")],
@@ -915,7 +915,7 @@ class HistoryApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetTermHistory200Response",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

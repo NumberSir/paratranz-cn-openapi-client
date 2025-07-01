@@ -45,7 +45,7 @@ configuration.api_key['Token'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['Token'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
+async with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = paratranz_cn_openapi_client.MembersApi(api_client)
     project_id = 867 # int | 项目ID
@@ -53,7 +53,7 @@ with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
 
     try:
         # 创建成员
-        api_response = api_instance.create_member(project_id, member)
+        api_response = await api_instance.create_member(project_id, member)
         print("The response of MembersApi->create_member:\n")
         pprint(api_response)
     except Exception as e:
@@ -125,14 +125,14 @@ configuration.api_key['Token'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['Token'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
+async with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = paratranz_cn_openapi_client.MembersApi(api_client)
     project_id = 867 # int | 项目ID
 
     try:
         # 删除成员
-        api_instance.delete_member(project_id)
+        await api_instance.delete_member(project_id)
     except Exception as e:
         print("Exception when calling MembersApi->delete_member: %s\n" % e)
 ```
@@ -203,7 +203,7 @@ configuration.api_key['Token'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['Token'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
+async with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = paratranz_cn_openapi_client.MembersApi(api_client)
     project_id = 867 # int | 项目ID
@@ -211,7 +211,7 @@ with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
 
     try:
         # 修改成员
-        api_response = api_instance.edit_member(project_id, edit_member_request)
+        api_response = await api_instance.edit_member(project_id, edit_member_request)
         print("The response of MembersApi->edit_member:\n")
         pprint(api_response)
     except Exception as e:
@@ -284,14 +284,14 @@ configuration.api_key['Token'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['Token'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
+async with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = paratranz_cn_openapi_client.MembersApi(api_client)
     project_id = 867 # int | 项目ID
 
     try:
         # 成员列表
-        api_response = api_instance.get_members(project_id)
+        api_response = await api_instance.get_members(project_id)
         print("The response of MembersApi->get_members:\n")
         pprint(api_response)
     except Exception as e:

@@ -20,9 +20,9 @@ import pprint
 import re  # noqa: F401
 from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
+from typing_extensions import Self
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
-from typing_extensions import Self
 
 
 class ImportTerms200Response(BaseModel):

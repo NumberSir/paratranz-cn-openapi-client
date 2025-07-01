@@ -20,9 +20,9 @@ import pprint
 import re  # noqa: F401
 from typing import Any, ClassVar, Dict, List, Union
 from typing import Optional, Set
+from typing_extensions import Self
 
 from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
-from typing_extensions import Self
 
 from paratranz_cn_openapi_client.models.term import Term
 

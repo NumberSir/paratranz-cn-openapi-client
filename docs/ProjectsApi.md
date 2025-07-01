@@ -46,14 +46,14 @@ configuration.api_key['Token'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['Token'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
+async with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = paratranz_cn_openapi_client.ProjectsApi(api_client)
     project = paratranz_cn_openapi_client.Project() # Project | 
 
     try:
         # 创建项目
-        api_response = api_instance.create_project(project)
+        api_response = await api_instance.create_project(project)
         print("The response of ProjectsApi->create_project:\n")
         pprint(api_response)
     except Exception as e:
@@ -126,14 +126,14 @@ configuration.api_key['Token'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['Token'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
+async with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = paratranz_cn_openapi_client.ProjectsApi(api_client)
     project_id = 867 # int | 项目ID
 
     try:
         # 删除项目
-        api_instance.delete_project(project_id)
+        await api_instance.delete_project(project_id)
     except Exception as e:
         print("Exception when calling ProjectsApi->delete_project: %s\n" % e)
 ```
@@ -203,14 +203,14 @@ configuration.api_key['Token'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['Token'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
+async with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = paratranz_cn_openapi_client.ProjectsApi(api_client)
     project_id = 867 # int | 项目ID
 
     try:
         # 项目信息
-        api_response = api_instance.get_project(project_id)
+        api_response = await api_instance.get_project(project_id)
         print("The response of ProjectsApi->get_project:\n")
         pprint(api_response)
     except Exception as e:
@@ -282,7 +282,7 @@ configuration.api_key['Token'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['Token'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
+async with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = paratranz_cn_openapi_client.ProjectsApi(api_client)
     page = 1 # int | 页码 (optional) (default to 1)
@@ -290,7 +290,7 @@ with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
 
     try:
         # 项目列表
-        api_response = api_instance.get_projects(page=page, page_size=page_size)
+        api_response = await api_instance.get_projects(page=page, page_size=page_size)
         print("The response of ProjectsApi->get_projects:\n")
         pprint(api_response)
     except Exception as e:
@@ -363,7 +363,7 @@ configuration.api_key['Token'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['Token'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
+async with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = paratranz_cn_openapi_client.ProjectsApi(api_client)
     project_id = 867 # int | 项目ID
@@ -371,7 +371,7 @@ with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
 
     try:
         # 更新项目
-        api_response = api_instance.save_project(project_id, project)
+        api_response = await api_instance.save_project(project_id, project)
         print("The response of ProjectsApi->save_project:\n")
         pprint(api_response)
     except Exception as e:

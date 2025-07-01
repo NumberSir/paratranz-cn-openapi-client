@@ -21,10 +21,10 @@ import re  # noqa: F401
 from datetime import datetime
 from typing import Any, ClassVar, Dict, List, Union
 from typing import Optional, Set
-
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
 from typing_extensions import Annotated
 from typing_extensions import Self
+
+from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
 
 from paratranz_cn_openapi_client.models.permission import Permission
 from paratranz_cn_openapi_client.models.user import User

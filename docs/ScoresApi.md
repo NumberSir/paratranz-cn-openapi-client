@@ -42,7 +42,7 @@ configuration.api_key['Token'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['Token'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
+async with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = paratranz_cn_openapi_client.ScoresApi(api_client)
     project_id = 867 # int | 项目ID
@@ -55,7 +55,7 @@ with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
 
     try:
         # 成员贡献
-        api_response = api_instance.get_scores(project_id, page=page, page_size=page_size, uid=uid, operation=operation, start=start, end=end)
+        api_response = await api_instance.get_scores(project_id, page=page, page_size=page_size, uid=uid, operation=operation, start=start, end=end)
         print("The response of ScoresApi->get_scores:\n")
         pprint(api_response)
     except Exception as e:

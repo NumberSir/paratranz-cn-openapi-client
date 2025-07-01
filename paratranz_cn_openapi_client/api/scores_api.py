@@ -15,10 +15,10 @@
 from datetime import datetime
 from typing import Any, Dict, List, Tuple
 from typing import Optional, Union
-
-from pydantic import Field, StrictInt, StrictStr
-from pydantic import validate_call, StrictFloat
 from typing_extensions import Annotated
+
+from pydantic import Field, StrictInt, StrictStr, field_validator
+from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 
 from paratranz_cn_openapi_client.api_client import ApiClient, RequestSerialized
 from paratranz_cn_openapi_client.api_response import ApiResponse
@@ -40,7 +40,7 @@ class ScoresApi:
 
 
     @validate_call
-    def get_scores(
+    async def get_scores(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         page: Annotated[Optional[StrictInt], Field(description="页码")] = None,
@@ -119,11 +119,11 @@ class ScoresApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetScores200Response",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -131,7 +131,7 @@ class ScoresApi:
 
 
     @validate_call
-    def get_scores_with_http_info(
+    async def get_scores_with_http_info(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         page: Annotated[Optional[StrictInt], Field(description="页码")] = None,
@@ -210,11 +210,11 @@ class ScoresApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetScores200Response",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -222,7 +222,7 @@ class ScoresApi:
 
 
     @validate_call
-    def get_scores_without_preload_content(
+    async def get_scores_without_preload_content(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         page: Annotated[Optional[StrictInt], Field(description="页码")] = None,
@@ -301,7 +301,7 @@ class ScoresApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetScores200Response",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

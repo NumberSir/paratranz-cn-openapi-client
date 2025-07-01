@@ -49,7 +49,7 @@ configuration.api_key['Token'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['Token'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
+async with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = paratranz_cn_openapi_client.FilesApi(api_client)
     project_id = 867 # int | 项目ID
@@ -58,7 +58,7 @@ with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
 
     try:
         # 上传文件
-        api_response = api_instance.create_file(project_id, file=file, path=path)
+        api_response = await api_instance.create_file(project_id, file=file, path=path)
         print("The response of FilesApi->create_file:\n")
         pprint(api_response)
     except Exception as e:
@@ -131,7 +131,7 @@ configuration.api_key['Token'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['Token'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
+async with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = paratranz_cn_openapi_client.FilesApi(api_client)
     project_id = 867 # int | 项目ID
@@ -139,7 +139,7 @@ with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
 
     try:
         # 删除文件
-        api_instance.delete_file(project_id, file_id)
+        await api_instance.delete_file(project_id, file_id)
     except Exception as e:
         print("Exception when calling FilesApi->delete_file: %s\n" % e)
 ```
@@ -210,7 +210,7 @@ configuration.api_key['Token'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['Token'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
+async with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = paratranz_cn_openapi_client.FilesApi(api_client)
     project_id = 867 # int | 项目ID
@@ -218,7 +218,7 @@ with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
 
     try:
         # 文件信息
-        api_response = api_instance.get_file(project_id, file_id)
+        api_response = await api_instance.get_file(project_id, file_id)
         print("The response of FilesApi->get_file:\n")
         pprint(api_response)
     except Exception as e:
@@ -290,7 +290,7 @@ configuration.api_key['Token'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['Token'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
+async with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = paratranz_cn_openapi_client.FilesApi(api_client)
     project_id = 867 # int | 项目ID
@@ -298,7 +298,7 @@ with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
 
     try:
         # 文件翻译
-        api_instance.get_file_translation(project_id, file_id)
+        await api_instance.get_file_translation(project_id, file_id)
     except Exception as e:
         print("Exception when calling FilesApi->get_file_translation: %s\n" % e)
 ```
@@ -369,14 +369,14 @@ configuration.api_key['Token'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['Token'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
+async with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = paratranz_cn_openapi_client.FilesApi(api_client)
     project_id = 867 # int | 项目ID
 
     try:
         # 文件列表
-        api_response = api_instance.get_files(project_id)
+        api_response = await api_instance.get_files(project_id)
         print("The response of FilesApi->get_files:\n")
         pprint(api_response)
     except Exception as e:
@@ -449,7 +449,7 @@ configuration.api_key['Token'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['Token'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
+async with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = paratranz_cn_openapi_client.FilesApi(api_client)
     project_id = 867 # int | 项目ID
@@ -458,7 +458,7 @@ with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
 
     try:
         # 修改文件
-        api_response = api_instance.save_file(project_id, file_id, save_file_request)
+        api_response = await api_instance.save_file(project_id, file_id, save_file_request)
         print("The response of FilesApi->save_file:\n")
         pprint(api_response)
     except Exception as e:
@@ -532,7 +532,7 @@ configuration.api_key['Token'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['Token'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
+async with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = paratranz_cn_openapi_client.FilesApi(api_client)
     project_id = 867 # int | 项目ID
@@ -541,7 +541,7 @@ with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
 
     try:
         # 更新文件
-        api_response = api_instance.update_file(project_id, file_id, file=file)
+        api_response = await api_instance.update_file(project_id, file_id, file=file)
         print("The response of FilesApi->update_file:\n")
         pprint(api_response)
     except Exception as e:
@@ -615,7 +615,7 @@ configuration.api_key['Token'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['Token'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
+async with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = paratranz_cn_openapi_client.FilesApi(api_client)
     project_id = 867 # int | 项目ID
@@ -625,7 +625,7 @@ with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
 
     try:
         # 更新文件翻译
-        api_response = api_instance.update_file_translation(project_id, file_id, file=file, force=force)
+        api_response = await api_instance.update_file_translation(project_id, file_id, file=file, force=force)
         print("The response of FilesApi->update_file_translation:\n")
         pprint(api_response)
     except Exception as e:

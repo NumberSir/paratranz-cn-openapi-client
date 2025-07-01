@@ -14,10 +14,10 @@
 
 from typing import Any, Dict, Optional, Tuple, Union
 from typing import List
+from typing_extensions import Annotated
 
 from pydantic import Field, StrictInt
-from pydantic import validate_call, StrictFloat, StrictStr
-from typing_extensions import Annotated
+from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 
 from paratranz_cn_openapi_client.api_client import ApiClient, RequestSerialized
 from paratranz_cn_openapi_client.api_response import ApiResponse
@@ -40,7 +40,7 @@ class MembersApi:
 
 
     @validate_call
-    def create_member(
+    async def create_member(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         member: Member,
@@ -99,11 +99,11 @@ class MembersApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Member",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -111,7 +111,7 @@ class MembersApi:
 
 
     @validate_call
-    def create_member_with_http_info(
+    async def create_member_with_http_info(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         member: Member,
@@ -170,11 +170,11 @@ class MembersApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Member",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -182,7 +182,7 @@ class MembersApi:
 
 
     @validate_call
-    def create_member_without_preload_content(
+    async def create_member_without_preload_content(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         member: Member,
@@ -241,7 +241,7 @@ class MembersApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Member",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -327,7 +327,7 @@ class MembersApi:
 
 
     @validate_call
-    def delete_member(
+    async def delete_member(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         _request_timeout: Union[
@@ -382,11 +382,11 @@ class MembersApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -394,7 +394,7 @@ class MembersApi:
 
 
     @validate_call
-    def delete_member_with_http_info(
+    async def delete_member_with_http_info(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         _request_timeout: Union[
@@ -449,11 +449,11 @@ class MembersApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -461,7 +461,7 @@ class MembersApi:
 
 
     @validate_call
-    def delete_member_without_preload_content(
+    async def delete_member_without_preload_content(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         _request_timeout: Union[
@@ -516,7 +516,7 @@ class MembersApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -579,7 +579,7 @@ class MembersApi:
 
 
     @validate_call
-    def edit_member(
+    async def edit_member(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         edit_member_request: EditMemberRequest,
@@ -638,11 +638,11 @@ class MembersApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Member",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -650,7 +650,7 @@ class MembersApi:
 
 
     @validate_call
-    def edit_member_with_http_info(
+    async def edit_member_with_http_info(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         edit_member_request: EditMemberRequest,
@@ -709,11 +709,11 @@ class MembersApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Member",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -721,7 +721,7 @@ class MembersApi:
 
 
     @validate_call
-    def edit_member_without_preload_content(
+    async def edit_member_without_preload_content(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         edit_member_request: EditMemberRequest,
@@ -780,7 +780,7 @@ class MembersApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Member",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -866,7 +866,7 @@ class MembersApi:
 
 
     @validate_call
-    def get_members(
+    async def get_members(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         _request_timeout: Union[
@@ -921,11 +921,11 @@ class MembersApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[Member]",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -933,7 +933,7 @@ class MembersApi:
 
 
     @validate_call
-    def get_members_with_http_info(
+    async def get_members_with_http_info(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         _request_timeout: Union[
@@ -988,11 +988,11 @@ class MembersApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[Member]",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1000,7 +1000,7 @@ class MembersApi:
 
 
     @validate_call
-    def get_members_without_preload_content(
+    async def get_members_without_preload_content(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         _request_timeout: Union[
@@ -1055,7 +1055,7 @@ class MembersApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[Member]",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

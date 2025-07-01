@@ -47,7 +47,7 @@ configuration.api_key['Token'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['Token'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
+async with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = paratranz_cn_openapi_client.TermsApi(api_client)
     project_id = 867 # int | 项目ID
@@ -57,7 +57,7 @@ with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
 
     try:
         # 创建术语
-        api_response = api_instance.create_term(project_id, term, page=page, page_size=page_size)
+        api_response = await api_instance.create_term(project_id, term, page=page, page_size=page_size)
         print("The response of TermsApi->create_term:\n")
         pprint(api_response)
     except Exception as e:
@@ -131,7 +131,7 @@ configuration.api_key['Token'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['Token'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
+async with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = paratranz_cn_openapi_client.TermsApi(api_client)
     project_id = 867 # int | 项目ID
@@ -139,7 +139,7 @@ with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
 
     try:
         # 删除术语
-        api_instance.delete_term(project_id, term_id)
+        await api_instance.delete_term(project_id, term_id)
     except Exception as e:
         print("Exception when calling TermsApi->delete_term: %s\n" % e)
 ```
@@ -210,7 +210,7 @@ configuration.api_key['Token'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['Token'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
+async with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = paratranz_cn_openapi_client.TermsApi(api_client)
     project_id = 867 # int | 项目ID
@@ -218,7 +218,7 @@ with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
 
     try:
         # 术语信息
-        api_response = api_instance.get_term(project_id, term_id)
+        api_response = await api_instance.get_term(project_id, term_id)
         print("The response of TermsApi->get_term:\n")
         pprint(api_response)
     except Exception as e:
@@ -291,7 +291,7 @@ configuration.api_key['Token'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['Token'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
+async with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = paratranz_cn_openapi_client.TermsApi(api_client)
     project_id = 867 # int | 项目ID
@@ -300,7 +300,7 @@ with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
 
     try:
         # 术语列表
-        api_response = api_instance.get_terms(project_id, page=page, page_size=page_size)
+        api_response = await api_instance.get_terms(project_id, page=page, page_size=page_size)
         print("The response of TermsApi->get_terms:\n")
         pprint(api_response)
     except Exception as e:
@@ -374,7 +374,7 @@ configuration.api_key['Token'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['Token'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
+async with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = paratranz_cn_openapi_client.TermsApi(api_client)
     project_id = 867 # int | 项目ID
@@ -384,7 +384,7 @@ with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
 
     try:
         # 批量导入术语
-        api_response = api_instance.import_terms(project_id, page=page, page_size=page_size, file=file)
+        api_response = await api_instance.import_terms(project_id, page=page, page_size=page_size, file=file)
         print("The response of TermsApi->import_terms:\n")
         pprint(api_response)
     except Exception as e:
@@ -459,7 +459,7 @@ configuration.api_key['Token'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['Token'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
+async with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = paratranz_cn_openapi_client.TermsApi(api_client)
     project_id = 867 # int | 项目ID
@@ -468,7 +468,7 @@ with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
 
     try:
         # 修改术语
-        api_response = api_instance.save_term(project_id, term_id, term)
+        api_response = await api_instance.save_term(project_id, term_id, term)
         print("The response of TermsApi->save_term:\n")
         pprint(api_response)
     except Exception as e:

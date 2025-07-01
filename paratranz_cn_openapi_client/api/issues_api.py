@@ -14,10 +14,10 @@
 
 from typing import Any, Dict, List, Tuple
 from typing import Optional, Union
-
-from pydantic import Field, StrictFloat, StrictInt
-from pydantic import validate_call, StrictStr
 from typing_extensions import Annotated
+
+from pydantic import Field, StrictFloat, StrictInt, field_validator
+from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 
 from paratranz_cn_openapi_client.api_client import ApiClient, RequestSerialized
 from paratranz_cn_openapi_client.api_response import ApiResponse
@@ -43,7 +43,7 @@ class IssuesApi:
 
 
     @validate_call
-    def create_issue(
+    async def create_issue(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         create_issue_request: CreateIssueRequest,
@@ -103,11 +103,11 @@ class IssuesApi:
             '200': "Issue",
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -115,7 +115,7 @@ class IssuesApi:
 
 
     @validate_call
-    def create_issue_with_http_info(
+    async def create_issue_with_http_info(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         create_issue_request: CreateIssueRequest,
@@ -175,11 +175,11 @@ class IssuesApi:
             '200': "Issue",
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -187,7 +187,7 @@ class IssuesApi:
 
 
     @validate_call
-    def create_issue_without_preload_content(
+    async def create_issue_without_preload_content(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         create_issue_request: CreateIssueRequest,
@@ -247,7 +247,7 @@ class IssuesApi:
             '200': "Issue",
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -333,7 +333,7 @@ class IssuesApi:
 
 
     @validate_call
-    def delete_issue(
+    async def delete_issue(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         issue_id: Annotated[StrictInt, Field(description="讨论ID")],
@@ -392,11 +392,11 @@ class IssuesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -404,7 +404,7 @@ class IssuesApi:
 
 
     @validate_call
-    def delete_issue_with_http_info(
+    async def delete_issue_with_http_info(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         issue_id: Annotated[StrictInt, Field(description="讨论ID")],
@@ -463,11 +463,11 @@ class IssuesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -475,7 +475,7 @@ class IssuesApi:
 
 
     @validate_call
-    def delete_issue_without_preload_content(
+    async def delete_issue_without_preload_content(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         issue_id: Annotated[StrictInt, Field(description="讨论ID")],
@@ -534,7 +534,7 @@ class IssuesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -600,7 +600,7 @@ class IssuesApi:
 
 
     @validate_call
-    def get_issue(
+    async def get_issue(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         issue_id: Annotated[StrictInt, Field(description="讨论ID")],
@@ -659,11 +659,11 @@ class IssuesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetIssue200Response",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -671,7 +671,7 @@ class IssuesApi:
 
 
     @validate_call
-    def get_issue_with_http_info(
+    async def get_issue_with_http_info(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         issue_id: Annotated[StrictInt, Field(description="讨论ID")],
@@ -730,11 +730,11 @@ class IssuesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetIssue200Response",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -742,7 +742,7 @@ class IssuesApi:
 
 
     @validate_call
-    def get_issue_without_preload_content(
+    async def get_issue_without_preload_content(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         issue_id: Annotated[StrictInt, Field(description="讨论ID")],
@@ -801,7 +801,7 @@ class IssuesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetIssue200Response",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -874,7 +874,7 @@ class IssuesApi:
 
 
     @validate_call
-    def get_issues(
+    async def get_issues(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         status: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="按状态筛选讨论（0 - 讨论中，1 - 已关闭）")] = None,
@@ -933,11 +933,11 @@ class IssuesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetIssues200Response",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -945,7 +945,7 @@ class IssuesApi:
 
 
     @validate_call
-    def get_issues_with_http_info(
+    async def get_issues_with_http_info(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         status: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="按状态筛选讨论（0 - 讨论中，1 - 已关闭）")] = None,
@@ -1004,11 +1004,11 @@ class IssuesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetIssues200Response",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1016,7 +1016,7 @@ class IssuesApi:
 
 
     @validate_call
-    def get_issues_without_preload_content(
+    async def get_issues_without_preload_content(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         status: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="按状态筛选讨论（0 - 讨论中，1 - 已关闭）")] = None,
@@ -1075,7 +1075,7 @@ class IssuesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetIssues200Response",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1150,7 +1150,7 @@ class IssuesApi:
 
 
     @validate_call
-    def operate_issue(
+    async def operate_issue(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         issue_id: Annotated[StrictInt, Field(description="讨论ID")],
@@ -1214,11 +1214,11 @@ class IssuesApi:
             '201': "Reply",
             '200': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1226,7 +1226,7 @@ class IssuesApi:
 
 
     @validate_call
-    def operate_issue_with_http_info(
+    async def operate_issue_with_http_info(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         issue_id: Annotated[StrictInt, Field(description="讨论ID")],
@@ -1290,11 +1290,11 @@ class IssuesApi:
             '201': "Reply",
             '200': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1302,7 +1302,7 @@ class IssuesApi:
 
 
     @validate_call
-    def operate_issue_without_preload_content(
+    async def operate_issue_without_preload_content(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         issue_id: Annotated[StrictInt, Field(description="讨论ID")],
@@ -1366,7 +1366,7 @@ class IssuesApi:
             '201': "Reply",
             '200': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1455,7 +1455,7 @@ class IssuesApi:
 
 
     @validate_call
-    def save_issue(
+    async def save_issue(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         issue_id: Annotated[StrictInt, Field(description="讨论ID")],
@@ -1519,11 +1519,11 @@ class IssuesApi:
             '200': "Issue",
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1531,7 +1531,7 @@ class IssuesApi:
 
 
     @validate_call
-    def save_issue_with_http_info(
+    async def save_issue_with_http_info(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         issue_id: Annotated[StrictInt, Field(description="讨论ID")],
@@ -1595,11 +1595,11 @@ class IssuesApi:
             '200': "Issue",
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1607,7 +1607,7 @@ class IssuesApi:
 
 
     @validate_call
-    def save_issue_without_preload_content(
+    async def save_issue_without_preload_content(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         issue_id: Annotated[StrictInt, Field(description="讨论ID")],
@@ -1671,7 +1671,7 @@ class IssuesApi:
             '200': "Issue",
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

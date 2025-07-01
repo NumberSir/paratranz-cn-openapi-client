@@ -21,9 +21,9 @@ import re  # noqa: F401
 from datetime import datetime
 from typing import Any, ClassVar, Dict, List, Union
 from typing import Optional, Set
+from typing_extensions import Self
 
 from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
-from typing_extensions import Self
 
 
 class User(BaseModel):

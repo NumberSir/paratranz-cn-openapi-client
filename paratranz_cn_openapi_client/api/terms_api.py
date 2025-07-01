@@ -14,10 +14,10 @@
 
 from typing import Any, Dict, List, Tuple
 from typing import Optional, Union
+from typing_extensions import Annotated
 
 from pydantic import Field, StrictBytes, StrictInt, StrictStr
-from pydantic import validate_call, StrictFloat
-from typing_extensions import Annotated
+from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 
 from paratranz_cn_openapi_client.api_client import ApiClient, RequestSerialized
 from paratranz_cn_openapi_client.api_response import ApiResponse
@@ -41,7 +41,7 @@ class TermsApi:
 
 
     @validate_call
-    def create_term(
+    async def create_term(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         term: Term,
@@ -108,11 +108,11 @@ class TermsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Term",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -120,7 +120,7 @@ class TermsApi:
 
 
     @validate_call
-    def create_term_with_http_info(
+    async def create_term_with_http_info(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         term: Term,
@@ -187,11 +187,11 @@ class TermsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Term",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -199,7 +199,7 @@ class TermsApi:
 
 
     @validate_call
-    def create_term_without_preload_content(
+    async def create_term_without_preload_content(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         term: Term,
@@ -266,7 +266,7 @@ class TermsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Term",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -362,7 +362,7 @@ class TermsApi:
 
 
     @validate_call
-    def delete_term(
+    async def delete_term(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         term_id: Annotated[StrictInt, Field(description="术语ID")],
@@ -421,11 +421,11 @@ class TermsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -433,7 +433,7 @@ class TermsApi:
 
 
     @validate_call
-    def delete_term_with_http_info(
+    async def delete_term_with_http_info(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         term_id: Annotated[StrictInt, Field(description="术语ID")],
@@ -492,11 +492,11 @@ class TermsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -504,7 +504,7 @@ class TermsApi:
 
 
     @validate_call
-    def delete_term_without_preload_content(
+    async def delete_term_without_preload_content(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         term_id: Annotated[StrictInt, Field(description="术语ID")],
@@ -563,7 +563,7 @@ class TermsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -629,7 +629,7 @@ class TermsApi:
 
 
     @validate_call
-    def get_term(
+    async def get_term(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         term_id: Annotated[StrictInt, Field(description="术语ID")],
@@ -688,11 +688,11 @@ class TermsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Term",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -700,7 +700,7 @@ class TermsApi:
 
 
     @validate_call
-    def get_term_with_http_info(
+    async def get_term_with_http_info(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         term_id: Annotated[StrictInt, Field(description="术语ID")],
@@ -759,11 +759,11 @@ class TermsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Term",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -771,7 +771,7 @@ class TermsApi:
 
 
     @validate_call
-    def get_term_without_preload_content(
+    async def get_term_without_preload_content(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         term_id: Annotated[StrictInt, Field(description="术语ID")],
@@ -830,7 +830,7 @@ class TermsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Term",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -903,7 +903,7 @@ class TermsApi:
 
 
     @validate_call
-    def get_terms(
+    async def get_terms(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         page: Annotated[Optional[StrictInt], Field(description="页码")] = None,
@@ -966,11 +966,11 @@ class TermsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetTerms200Response",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -978,7 +978,7 @@ class TermsApi:
 
 
     @validate_call
-    def get_terms_with_http_info(
+    async def get_terms_with_http_info(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         page: Annotated[Optional[StrictInt], Field(description="页码")] = None,
@@ -1041,11 +1041,11 @@ class TermsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetTerms200Response",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1053,7 +1053,7 @@ class TermsApi:
 
 
     @validate_call
-    def get_terms_without_preload_content(
+    async def get_terms_without_preload_content(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         page: Annotated[Optional[StrictInt], Field(description="页码")] = None,
@@ -1116,7 +1116,7 @@ class TermsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetTerms200Response",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1196,7 +1196,7 @@ class TermsApi:
 
 
     @validate_call
-    def import_terms(
+    async def import_terms(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         page: Annotated[Optional[StrictInt], Field(description="页码")] = None,
@@ -1263,11 +1263,11 @@ class TermsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ImportTerms200Response",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1275,7 +1275,7 @@ class TermsApi:
 
 
     @validate_call
-    def import_terms_with_http_info(
+    async def import_terms_with_http_info(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         page: Annotated[Optional[StrictInt], Field(description="页码")] = None,
@@ -1342,11 +1342,11 @@ class TermsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ImportTerms200Response",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1354,7 +1354,7 @@ class TermsApi:
 
 
     @validate_call
-    def import_terms_without_preload_content(
+    async def import_terms_without_preload_content(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         page: Annotated[Optional[StrictInt], Field(description="页码")] = None,
@@ -1421,7 +1421,7 @@ class TermsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ImportTerms200Response",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1517,7 +1517,7 @@ class TermsApi:
 
 
     @validate_call
-    def save_term(
+    async def save_term(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         term_id: Annotated[StrictInt, Field(description="术语ID")],
@@ -1580,11 +1580,11 @@ class TermsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Term",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1592,7 +1592,7 @@ class TermsApi:
 
 
     @validate_call
-    def save_term_with_http_info(
+    async def save_term_with_http_info(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         term_id: Annotated[StrictInt, Field(description="术语ID")],
@@ -1655,11 +1655,11 @@ class TermsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Term",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1667,7 +1667,7 @@ class TermsApi:
 
 
     @validate_call
-    def save_term_without_preload_content(
+    async def save_term_without_preload_content(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         term_id: Annotated[StrictInt, Field(description="术语ID")],
@@ -1730,7 +1730,7 @@ class TermsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Term",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

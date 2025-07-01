@@ -13,10 +13,10 @@
 """  # noqa: E501
 
 from typing import Any, Dict, List, Optional, Tuple, Union
+from typing_extensions import Annotated
 
 from pydantic import Field, StrictInt
-from pydantic import validate_call, StrictFloat, StrictStr
-from typing_extensions import Annotated
+from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 
 from paratranz_cn_openapi_client.api_client import ApiClient, RequestSerialized
 from paratranz_cn_openapi_client.api_response import ApiResponse
@@ -39,7 +39,7 @@ class UsersApi:
 
 
     @validate_call
-    def get_user(
+    async def get_user(
         self,
         user_id: Annotated[StrictInt, Field(description="用户ID")],
         _request_timeout: Union[
@@ -93,11 +93,11 @@ class UsersApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "User",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -105,7 +105,7 @@ class UsersApi:
 
 
     @validate_call
-    def get_user_with_http_info(
+    async def get_user_with_http_info(
         self,
         user_id: Annotated[StrictInt, Field(description="用户ID")],
         _request_timeout: Union[
@@ -159,11 +159,11 @@ class UsersApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "User",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -171,7 +171,7 @@ class UsersApi:
 
 
     @validate_call
-    def get_user_without_preload_content(
+    async def get_user_without_preload_content(
         self,
         user_id: Annotated[StrictInt, Field(description="用户ID")],
         _request_timeout: Union[
@@ -225,7 +225,7 @@ class UsersApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "User",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -295,7 +295,7 @@ class UsersApi:
 
 
     @validate_call
-    def save_user(
+    async def save_user(
         self,
         user_id: Annotated[StrictInt, Field(description="用户ID")],
         save_user_request: SaveUserRequest,
@@ -354,11 +354,11 @@ class UsersApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "User",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -366,7 +366,7 @@ class UsersApi:
 
 
     @validate_call
-    def save_user_with_http_info(
+    async def save_user_with_http_info(
         self,
         user_id: Annotated[StrictInt, Field(description="用户ID")],
         save_user_request: SaveUserRequest,
@@ -425,11 +425,11 @@ class UsersApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "User",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -437,7 +437,7 @@ class UsersApi:
 
 
     @validate_call
-    def save_user_without_preload_content(
+    async def save_user_without_preload_content(
         self,
         user_id: Annotated[StrictInt, Field(description="用户ID")],
         save_user_request: SaveUserRequest,
@@ -496,7 +496,7 @@ class UsersApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "User",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

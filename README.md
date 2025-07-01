@@ -130,14 +130,14 @@ configuration.api_key['Token'] = os.environ["API_KEY"]
 
 
 # Enter a context with an instance of the API client
-with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
+async with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = paratranz_cn_openapi_client.ArtifactsApi(api_client)
     project_id = 867 # int | 项目ID
 
     try:
         # 下载
-        api_instance.download_artifact(project_id)
+        await api_instance.download_artifact(project_id)
     except ApiException as e:
         print("Exception when calling ArtifactsApi->download_artifact: %s\n" % e)
 

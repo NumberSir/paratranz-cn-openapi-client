@@ -41,14 +41,14 @@ configuration.api_key['Token'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['Token'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
+async with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = paratranz_cn_openapi_client.UsersApi(api_client)
     user_id = 56 # int | 用户ID
 
     try:
         # 获取用户信息
-        api_response = api_instance.get_user(user_id)
+        api_response = await api_instance.get_user(user_id)
         print("The response of UsersApi->get_user:\n")
         pprint(api_response)
     except Exception as e:
@@ -121,7 +121,7 @@ configuration.api_key['Token'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['Token'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
+async with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = paratranz_cn_openapi_client.UsersApi(api_client)
     user_id = 56 # int | 用户ID
@@ -129,7 +129,7 @@ with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
 
     try:
         # 更新用户
-        api_response = api_instance.save_user(user_id, save_user_request)
+        api_response = await api_instance.save_user(user_id, save_user_request)
         print("The response of UsersApi->save_user:\n")
         pprint(api_response)
     except Exception as e:

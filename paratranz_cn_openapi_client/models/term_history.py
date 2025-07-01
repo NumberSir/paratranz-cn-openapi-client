@@ -21,9 +21,9 @@ import re  # noqa: F401
 from datetime import datetime
 from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
+from typing_extensions import Self
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr, field_validator
-from typing_extensions import Self
 
 from paratranz_cn_openapi_client.models.term_history_target import TermHistoryTarget
 

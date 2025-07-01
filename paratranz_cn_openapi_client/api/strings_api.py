@@ -14,10 +14,10 @@
 
 from typing import Any, Dict, List, Tuple, Union
 from typing import Optional
+from typing_extensions import Annotated
 
 from pydantic import Field, StrictInt
-from pydantic import validate_call, StrictFloat, StrictStr
-from typing_extensions import Annotated
+from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 
 from paratranz_cn_openapi_client.api_client import ApiClient, RequestSerialized
 from paratranz_cn_openapi_client.api_response import ApiResponse
@@ -42,7 +42,7 @@ class StringsApi:
 
 
     @validate_call
-    def batch_operate_strings(
+    async def batch_operate_strings(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         batch_operate_strings_request: BatchOperateStringsRequest,
@@ -101,11 +101,11 @@ class StringsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "StringItem",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -113,7 +113,7 @@ class StringsApi:
 
 
     @validate_call
-    def batch_operate_strings_with_http_info(
+    async def batch_operate_strings_with_http_info(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         batch_operate_strings_request: BatchOperateStringsRequest,
@@ -172,11 +172,11 @@ class StringsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "StringItem",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -184,7 +184,7 @@ class StringsApi:
 
 
     @validate_call
-    def batch_operate_strings_without_preload_content(
+    async def batch_operate_strings_without_preload_content(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         batch_operate_strings_request: BatchOperateStringsRequest,
@@ -243,7 +243,7 @@ class StringsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "StringItem",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -329,7 +329,7 @@ class StringsApi:
 
 
     @validate_call
-    def create_string(
+    async def create_string(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         string_item: StringItem,
@@ -388,11 +388,11 @@ class StringsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "StringItem",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -400,7 +400,7 @@ class StringsApi:
 
 
     @validate_call
-    def create_string_with_http_info(
+    async def create_string_with_http_info(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         string_item: StringItem,
@@ -459,11 +459,11 @@ class StringsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "StringItem",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -471,7 +471,7 @@ class StringsApi:
 
 
     @validate_call
-    def create_string_without_preload_content(
+    async def create_string_without_preload_content(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         string_item: StringItem,
@@ -530,7 +530,7 @@ class StringsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "StringItem",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -616,7 +616,7 @@ class StringsApi:
 
 
     @validate_call
-    def delete_string(
+    async def delete_string(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         string_id: Annotated[StrictInt, Field(description="词条ID")],
@@ -675,11 +675,11 @@ class StringsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -687,7 +687,7 @@ class StringsApi:
 
 
     @validate_call
-    def delete_string_with_http_info(
+    async def delete_string_with_http_info(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         string_id: Annotated[StrictInt, Field(description="词条ID")],
@@ -746,11 +746,11 @@ class StringsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -758,7 +758,7 @@ class StringsApi:
 
 
     @validate_call
-    def delete_string_without_preload_content(
+    async def delete_string_without_preload_content(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         string_id: Annotated[StrictInt, Field(description="词条ID")],
@@ -817,7 +817,7 @@ class StringsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -883,7 +883,7 @@ class StringsApi:
 
 
     @validate_call
-    def get_string(
+    async def get_string(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         string_id: Annotated[StrictInt, Field(description="词条ID")],
@@ -942,11 +942,11 @@ class StringsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "StringItem",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -954,7 +954,7 @@ class StringsApi:
 
 
     @validate_call
-    def get_string_with_http_info(
+    async def get_string_with_http_info(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         string_id: Annotated[StrictInt, Field(description="词条ID")],
@@ -1013,11 +1013,11 @@ class StringsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "StringItem",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1025,7 +1025,7 @@ class StringsApi:
 
 
     @validate_call
-    def get_string_without_preload_content(
+    async def get_string_without_preload_content(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         string_id: Annotated[StrictInt, Field(description="词条ID")],
@@ -1084,7 +1084,7 @@ class StringsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "StringItem",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1157,7 +1157,7 @@ class StringsApi:
 
 
     @validate_call
-    def get_strings(
+    async def get_strings(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         file_id: Annotated[StrictInt, Field(description="文件ID")],
@@ -1228,11 +1228,11 @@ class StringsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetStrings200Response",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1240,7 +1240,7 @@ class StringsApi:
 
 
     @validate_call
-    def get_strings_with_http_info(
+    async def get_strings_with_http_info(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         file_id: Annotated[StrictInt, Field(description="文件ID")],
@@ -1311,11 +1311,11 @@ class StringsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetStrings200Response",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1323,7 +1323,7 @@ class StringsApi:
 
 
     @validate_call
-    def get_strings_without_preload_content(
+    async def get_strings_without_preload_content(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         file_id: Annotated[StrictInt, Field(description="文件ID")],
@@ -1394,7 +1394,7 @@ class StringsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetStrings200Response",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1482,7 +1482,7 @@ class StringsApi:
 
 
     @validate_call
-    def save_string(
+    async def save_string(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         string_id: Annotated[StrictInt, Field(description="词条ID")],
@@ -1545,11 +1545,11 @@ class StringsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "StringItem",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1557,7 +1557,7 @@ class StringsApi:
 
 
     @validate_call
-    def save_string_with_http_info(
+    async def save_string_with_http_info(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         string_id: Annotated[StrictInt, Field(description="词条ID")],
@@ -1620,11 +1620,11 @@ class StringsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "StringItem",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1632,7 +1632,7 @@ class StringsApi:
 
 
     @validate_call
-    def save_string_without_preload_content(
+    async def save_string_without_preload_content(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         string_id: Annotated[StrictInt, Field(description="词条ID")],
@@ -1695,7 +1695,7 @@ class StringsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "StringItem",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

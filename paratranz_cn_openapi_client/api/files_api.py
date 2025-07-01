@@ -14,10 +14,10 @@
 
 from typing import Any, Dict, Tuple
 from typing import List, Optional, Union
+from typing_extensions import Annotated
 
 from pydantic import Field, StrictBool, StrictBytes, StrictInt, StrictStr
-from pydantic import validate_call, StrictFloat
-from typing_extensions import Annotated
+from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 
 from paratranz_cn_openapi_client.api_client import ApiClient, RequestSerialized
 from paratranz_cn_openapi_client.api_response import ApiResponse
@@ -41,7 +41,7 @@ class FilesApi:
 
 
     @validate_call
-    def create_file(
+    async def create_file(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         file: Annotated[Optional[Union[StrictBytes, StrictStr]], Field(description="文件数据，文件名由此项的文件名决定")] = None,
@@ -104,11 +104,11 @@ class FilesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CreateFile200Response",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -116,7 +116,7 @@ class FilesApi:
 
 
     @validate_call
-    def create_file_with_http_info(
+    async def create_file_with_http_info(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         file: Annotated[Optional[Union[StrictBytes, StrictStr]], Field(description="文件数据，文件名由此项的文件名决定")] = None,
@@ -179,11 +179,11 @@ class FilesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CreateFile200Response",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -191,7 +191,7 @@ class FilesApi:
 
 
     @validate_call
-    def create_file_without_preload_content(
+    async def create_file_without_preload_content(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         file: Annotated[Optional[Union[StrictBytes, StrictStr]], Field(description="文件数据，文件名由此项的文件名决定")] = None,
@@ -254,7 +254,7 @@ class FilesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CreateFile200Response",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -343,7 +343,7 @@ class FilesApi:
 
 
     @validate_call
-    def delete_file(
+    async def delete_file(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         file_id: Annotated[StrictInt, Field(description="文件ID")],
@@ -402,11 +402,11 @@ class FilesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -414,7 +414,7 @@ class FilesApi:
 
 
     @validate_call
-    def delete_file_with_http_info(
+    async def delete_file_with_http_info(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         file_id: Annotated[StrictInt, Field(description="文件ID")],
@@ -473,11 +473,11 @@ class FilesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -485,7 +485,7 @@ class FilesApi:
 
 
     @validate_call
-    def delete_file_without_preload_content(
+    async def delete_file_without_preload_content(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         file_id: Annotated[StrictInt, Field(description="文件ID")],
@@ -544,7 +544,7 @@ class FilesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -610,7 +610,7 @@ class FilesApi:
 
 
     @validate_call
-    def get_file(
+    async def get_file(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         file_id: Annotated[StrictInt, Field(description="文件ID")],
@@ -669,11 +669,11 @@ class FilesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "File",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -681,7 +681,7 @@ class FilesApi:
 
 
     @validate_call
-    def get_file_with_http_info(
+    async def get_file_with_http_info(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         file_id: Annotated[StrictInt, Field(description="文件ID")],
@@ -740,11 +740,11 @@ class FilesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "File",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -752,7 +752,7 @@ class FilesApi:
 
 
     @validate_call
-    def get_file_without_preload_content(
+    async def get_file_without_preload_content(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         file_id: Annotated[StrictInt, Field(description="文件ID")],
@@ -811,7 +811,7 @@ class FilesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "File",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -884,7 +884,7 @@ class FilesApi:
 
 
     @validate_call
-    def get_file_translation(
+    async def get_file_translation(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         file_id: Annotated[StrictInt, Field(description="文件ID")],
@@ -943,11 +943,11 @@ class FilesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -955,7 +955,7 @@ class FilesApi:
 
 
     @validate_call
-    def get_file_translation_with_http_info(
+    async def get_file_translation_with_http_info(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         file_id: Annotated[StrictInt, Field(description="文件ID")],
@@ -1014,11 +1014,11 @@ class FilesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1026,7 +1026,7 @@ class FilesApi:
 
 
     @validate_call
-    def get_file_translation_without_preload_content(
+    async def get_file_translation_without_preload_content(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         file_id: Annotated[StrictInt, Field(description="文件ID")],
@@ -1085,7 +1085,7 @@ class FilesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1151,7 +1151,7 @@ class FilesApi:
 
 
     @validate_call
-    def get_files(
+    async def get_files(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         _request_timeout: Union[
@@ -1206,11 +1206,11 @@ class FilesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[File]",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1218,7 +1218,7 @@ class FilesApi:
 
 
     @validate_call
-    def get_files_with_http_info(
+    async def get_files_with_http_info(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         _request_timeout: Union[
@@ -1273,11 +1273,11 @@ class FilesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[File]",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1285,7 +1285,7 @@ class FilesApi:
 
 
     @validate_call
-    def get_files_without_preload_content(
+    async def get_files_without_preload_content(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         _request_timeout: Union[
@@ -1340,7 +1340,7 @@ class FilesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[File]",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1410,7 +1410,7 @@ class FilesApi:
 
 
     @validate_call
-    def save_file(
+    async def save_file(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         file_id: Annotated[StrictInt, Field(description="文件ID")],
@@ -1473,11 +1473,11 @@ class FilesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "File",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1485,7 +1485,7 @@ class FilesApi:
 
 
     @validate_call
-    def save_file_with_http_info(
+    async def save_file_with_http_info(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         file_id: Annotated[StrictInt, Field(description="文件ID")],
@@ -1548,11 +1548,11 @@ class FilesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "File",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1560,7 +1560,7 @@ class FilesApi:
 
 
     @validate_call
-    def save_file_without_preload_content(
+    async def save_file_without_preload_content(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         file_id: Annotated[StrictInt, Field(description="文件ID")],
@@ -1623,7 +1623,7 @@ class FilesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "File",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1712,7 +1712,7 @@ class FilesApi:
 
 
     @validate_call
-    def update_file(
+    async def update_file(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         file_id: Annotated[StrictInt, Field(description="文件ID")],
@@ -1775,11 +1775,11 @@ class FilesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "File",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1787,7 +1787,7 @@ class FilesApi:
 
 
     @validate_call
-    def update_file_with_http_info(
+    async def update_file_with_http_info(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         file_id: Annotated[StrictInt, Field(description="文件ID")],
@@ -1850,11 +1850,11 @@ class FilesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "File",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1862,7 +1862,7 @@ class FilesApi:
 
 
     @validate_call
-    def update_file_without_preload_content(
+    async def update_file_without_preload_content(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         file_id: Annotated[StrictInt, Field(description="文件ID")],
@@ -1925,7 +1925,7 @@ class FilesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "File",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -2014,7 +2014,7 @@ class FilesApi:
 
 
     @validate_call
-    def update_file_translation(
+    async def update_file_translation(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         file_id: Annotated[StrictInt, Field(description="文件ID")],
@@ -2081,11 +2081,11 @@ class FilesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "File",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2093,7 +2093,7 @@ class FilesApi:
 
 
     @validate_call
-    def update_file_translation_with_http_info(
+    async def update_file_translation_with_http_info(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         file_id: Annotated[StrictInt, Field(description="文件ID")],
@@ -2160,11 +2160,11 @@ class FilesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "File",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2172,7 +2172,7 @@ class FilesApi:
 
 
     @validate_call
-    def update_file_translation_without_preload_content(
+    async def update_file_translation_without_preload_content(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         file_id: Annotated[StrictInt, Field(description="文件ID")],
@@ -2239,7 +2239,7 @@ class FilesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "File",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

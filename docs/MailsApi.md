@@ -44,14 +44,14 @@ configuration.api_key['Token'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['Token'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
+async with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = paratranz_cn_openapi_client.MailsApi(api_client)
     mail = paratranz_cn_openapi_client.Mail() # Mail | 
 
     try:
         # 发送私信
-        api_response = api_instance.create_mail(mail)
+        api_response = await api_instance.create_mail(mail)
         print("The response of MailsApi->create_mail:\n")
         pprint(api_response)
     except Exception as e:
@@ -123,14 +123,14 @@ configuration.api_key['Token'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['Token'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
+async with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = paratranz_cn_openapi_client.MailsApi(api_client)
     user_id = 56 # int | 用户ID
 
     try:
         # 用户对话
-        api_response = api_instance.get_conversation(user_id)
+        api_response = await api_instance.get_conversation(user_id)
         print("The response of MailsApi->get_conversation:\n")
         pprint(api_response)
     except Exception as e:
@@ -202,7 +202,7 @@ configuration.api_key['Token'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['Token'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
+async with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = paratranz_cn_openapi_client.MailsApi(api_client)
     page = 1 # int | 页码 (optional) (default to 1)
@@ -210,7 +210,7 @@ with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
 
     try:
         # 私信列表
-        api_response = api_instance.get_mails(page=page, page_size=page_size)
+        api_response = await api_instance.get_mails(page=page, page_size=page_size)
         print("The response of MailsApi->get_mails:\n")
         pprint(api_response)
     except Exception as e:

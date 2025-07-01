@@ -21,10 +21,10 @@ import re  # noqa: F401
 from datetime import datetime
 from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
-
-from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing_extensions import Annotated
 from typing_extensions import Self
+
+from pydantic import BaseModel, ConfigDict, Field, StrictInt
 
 
 class Artifact(BaseModel):

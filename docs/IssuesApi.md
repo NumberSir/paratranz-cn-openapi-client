@@ -48,7 +48,7 @@ configuration.api_key['Token'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['Token'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
+async with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = paratranz_cn_openapi_client.IssuesApi(api_client)
     project_id = 867 # int | 项目ID
@@ -56,7 +56,7 @@ with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
 
     try:
         # 发起讨论
-        api_response = api_instance.create_issue(project_id, create_issue_request)
+        api_response = await api_instance.create_issue(project_id, create_issue_request)
         print("The response of IssuesApi->create_issue:\n")
         pprint(api_response)
     except Exception as e:
@@ -129,7 +129,7 @@ configuration.api_key['Token'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['Token'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
+async with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = paratranz_cn_openapi_client.IssuesApi(api_client)
     project_id = 867 # int | 项目ID
@@ -137,7 +137,7 @@ with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
 
     try:
         # 删除讨论
-        api_instance.delete_issue(project_id, issue_id)
+        await api_instance.delete_issue(project_id, issue_id)
     except Exception as e:
         print("Exception when calling IssuesApi->delete_issue: %s\n" % e)
 ```
@@ -208,7 +208,7 @@ configuration.api_key['Token'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['Token'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
+async with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = paratranz_cn_openapi_client.IssuesApi(api_client)
     project_id = 867 # int | 项目ID
@@ -216,7 +216,7 @@ with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
 
     try:
         # 讨论信息
-        api_response = api_instance.get_issue(project_id, issue_id)
+        api_response = await api_instance.get_issue(project_id, issue_id)
         print("The response of IssuesApi->get_issue:\n")
         pprint(api_response)
     except Exception as e:
@@ -289,7 +289,7 @@ configuration.api_key['Token'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['Token'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
+async with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = paratranz_cn_openapi_client.IssuesApi(api_client)
     project_id = 867 # int | 项目ID
@@ -297,7 +297,7 @@ with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
 
     try:
         # 讨论列表
-        api_response = api_instance.get_issues(project_id, status=status)
+        api_response = await api_instance.get_issues(project_id, status=status)
         print("The response of IssuesApi->get_issues:\n")
         pprint(api_response)
     except Exception as e:
@@ -370,7 +370,7 @@ configuration.api_key['Token'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['Token'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
+async with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = paratranz_cn_openapi_client.IssuesApi(api_client)
     project_id = 867 # int | 项目ID
@@ -379,7 +379,7 @@ with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
 
     try:
         # 操作讨论
-        api_instance.operate_issue(project_id, issue_id, operate_issue_request)
+        await api_instance.operate_issue(project_id, issue_id, operate_issue_request)
     except Exception as e:
         print("Exception when calling IssuesApi->operate_issue: %s\n" % e)
 ```
@@ -452,7 +452,7 @@ configuration.api_key['Token'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['Token'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
+async with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = paratranz_cn_openapi_client.IssuesApi(api_client)
     project_id = 867 # int | 项目ID
@@ -461,7 +461,7 @@ with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
 
     try:
         # 修改讨论
-        api_response = api_instance.save_issue(project_id, issue_id, issue=issue)
+        api_response = await api_instance.save_issue(project_id, issue_id, issue=issue)
         print("The response of IssuesApi->save_issue:\n")
         pprint(api_response)
     except Exception as e:

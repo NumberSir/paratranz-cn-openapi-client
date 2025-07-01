@@ -14,10 +14,10 @@
 
 from typing import Any, Dict, Tuple, Union
 from typing import List, Optional
+from typing_extensions import Annotated
 
 from pydantic import Field, StrictInt
-from pydantic import validate_call, StrictFloat, StrictStr
-from typing_extensions import Annotated
+from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 
 from paratranz_cn_openapi_client.api_client import ApiClient, RequestSerialized
 from paratranz_cn_openapi_client.api_response import ApiResponse
@@ -40,7 +40,7 @@ class ProjectsApi:
 
 
     @validate_call
-    def create_project(
+    async def create_project(
         self,
         project: Project,
         _request_timeout: Union[
@@ -97,11 +97,11 @@ class ProjectsApi:
             '400': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -109,7 +109,7 @@ class ProjectsApi:
 
 
     @validate_call
-    def create_project_with_http_info(
+    async def create_project_with_http_info(
         self,
         project: Project,
         _request_timeout: Union[
@@ -166,11 +166,11 @@ class ProjectsApi:
             '400': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -178,7 +178,7 @@ class ProjectsApi:
 
 
     @validate_call
-    def create_project_without_preload_content(
+    async def create_project_without_preload_content(
         self,
         project: Project,
         _request_timeout: Union[
@@ -235,7 +235,7 @@ class ProjectsApi:
             '400': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -318,7 +318,7 @@ class ProjectsApi:
 
 
     @validate_call
-    def delete_project(
+    async def delete_project(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         _request_timeout: Union[
@@ -373,11 +373,11 @@ class ProjectsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -385,7 +385,7 @@ class ProjectsApi:
 
 
     @validate_call
-    def delete_project_with_http_info(
+    async def delete_project_with_http_info(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         _request_timeout: Union[
@@ -440,11 +440,11 @@ class ProjectsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -452,7 +452,7 @@ class ProjectsApi:
 
 
     @validate_call
-    def delete_project_without_preload_content(
+    async def delete_project_without_preload_content(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         _request_timeout: Union[
@@ -507,7 +507,7 @@ class ProjectsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -570,7 +570,7 @@ class ProjectsApi:
 
 
     @validate_call
-    def get_project(
+    async def get_project(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         _request_timeout: Union[
@@ -625,11 +625,11 @@ class ProjectsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Project",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -637,7 +637,7 @@ class ProjectsApi:
 
 
     @validate_call
-    def get_project_with_http_info(
+    async def get_project_with_http_info(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         _request_timeout: Union[
@@ -692,11 +692,11 @@ class ProjectsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Project",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -704,7 +704,7 @@ class ProjectsApi:
 
 
     @validate_call
-    def get_project_without_preload_content(
+    async def get_project_without_preload_content(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         _request_timeout: Union[
@@ -759,7 +759,7 @@ class ProjectsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Project",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -829,7 +829,7 @@ class ProjectsApi:
 
 
     @validate_call
-    def get_projects(
+    async def get_projects(
         self,
         page: Annotated[Optional[StrictInt], Field(description="页码")] = None,
         page_size: Annotated[Optional[Annotated[int, Field(le=800, strict=True, ge=1)]], Field(description="每页数量")] = None,
@@ -888,11 +888,11 @@ class ProjectsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[GetProjects200ResponseInner]",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -900,7 +900,7 @@ class ProjectsApi:
 
 
     @validate_call
-    def get_projects_with_http_info(
+    async def get_projects_with_http_info(
         self,
         page: Annotated[Optional[StrictInt], Field(description="页码")] = None,
         page_size: Annotated[Optional[Annotated[int, Field(le=800, strict=True, ge=1)]], Field(description="每页数量")] = None,
@@ -959,11 +959,11 @@ class ProjectsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[GetProjects200ResponseInner]",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -971,7 +971,7 @@ class ProjectsApi:
 
 
     @validate_call
-    def get_projects_without_preload_content(
+    async def get_projects_without_preload_content(
         self,
         page: Annotated[Optional[StrictInt], Field(description="页码")] = None,
         page_size: Annotated[Optional[Annotated[int, Field(le=800, strict=True, ge=1)]], Field(description="每页数量")] = None,
@@ -1030,7 +1030,7 @@ class ProjectsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[GetProjects200ResponseInner]",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1107,7 +1107,7 @@ class ProjectsApi:
 
 
     @validate_call
-    def save_project(
+    async def save_project(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         project: Project,
@@ -1166,11 +1166,11 @@ class ProjectsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Project",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1178,7 +1178,7 @@ class ProjectsApi:
 
 
     @validate_call
-    def save_project_with_http_info(
+    async def save_project_with_http_info(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         project: Project,
@@ -1237,11 +1237,11 @@ class ProjectsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Project",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1249,7 +1249,7 @@ class ProjectsApi:
 
 
     @validate_call
-    def save_project_without_preload_content(
+    async def save_project_without_preload_content(
         self,
         project_id: Annotated[StrictInt, Field(description="项目ID")],
         project: Project,
@@ -1308,7 +1308,7 @@ class ProjectsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Project",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

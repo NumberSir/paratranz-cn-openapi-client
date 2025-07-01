@@ -44,7 +44,7 @@ configuration.api_key['Token'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['Token'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
+async with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = paratranz_cn_openapi_client.HistoryApi(api_client)
     project_id = 867 # int | 项目ID
@@ -55,7 +55,7 @@ with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
 
     try:
         # 文件历史
-        api_response = api_instance.get_file_revisions(project_id, file=file, type=type, page=page, page_size=page_size)
+        api_response = await api_instance.get_file_revisions(project_id, file=file, type=type, page=page, page_size=page_size)
         print("The response of HistoryApi->get_file_revisions:\n")
         pprint(api_response)
     except Exception as e:
@@ -131,7 +131,7 @@ configuration.api_key['Token'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['Token'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
+async with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = paratranz_cn_openapi_client.HistoryApi(api_client)
     page = 1 # int | 页码 (optional) (default to 1)
@@ -143,7 +143,7 @@ with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
 
     try:
         # 获取历史记录
-        api_response = api_instance.get_history(page=page, page_size=page_size, project=project, uid=uid, tid=tid, type=type)
+        api_response = await api_instance.get_history(page=page, page_size=page_size, project=project, uid=uid, tid=tid, type=type)
         print("The response of HistoryApi->get_history:\n")
         pprint(api_response)
     except Exception as e:
@@ -220,7 +220,7 @@ configuration.api_key['Token'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['Token'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
+async with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = paratranz_cn_openapi_client.HistoryApi(api_client)
     project_id = 867 # int | 项目ID
@@ -228,7 +228,7 @@ with paratranz_cn_openapi_client.ApiClient(configuration) as api_client:
 
     try:
         # 术语历史
-        api_response = api_instance.get_term_history(project_id, term_id)
+        api_response = await api_instance.get_term_history(project_id, term_id)
         print("The response of HistoryApi->get_term_history:\n")
         pprint(api_response)
     except Exception as e:
